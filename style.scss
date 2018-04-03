@@ -1,0 +1,427 @@
+/**** PARAMETERS ****/
+$font-content: Segoe UI, Verdana, sans-serif;
+$font-header: Lucida Bright, Lora sans-serif;
+$orange: 		#c99172;
+$dkpurple: 	#544459;
+$purple: 	  #77516e;
+$grey:      #BBBAB4;
+$medgrey:   #706f6c;
+$bkgColor:  #E8E5E0; //f0ecdf
+$flipbox:   #ededed;
+$lightBlue: #24a4ee;
+
+/************ PAGE STYLING **************/
+body{
+  margin: auto;
+  max-width: 96%;
+  background-color: $bkgColor;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+.topHeader{
+  width: 100%;
+  div{ display: inline-block; }
+  .headerTxt{
+    width: 60%;
+    padding-left: 0.5em;
+  }
+  .headerBtn{
+    width: 39%;
+    button{  //expand all
+      width: 9em;
+      float: right;
+      padding: 2px 0 2px 0;
+      margin-right: 10px;
+      box-shadow: 2px 2px 10px $medgrey;
+      color: $dkpurple;
+      font-family: $font-content;
+      font-weight: bold;
+      border-radius: 0 !important; //to override bootstrap
+      background-color: $flipbox;
+  	  &:before{
+        padding-right:0.4em;
+        font-family: FontAwesome;
+      }
+      &.expandMe:before{ content: '\f067'; } //checkmark
+      &.collapseMe:before{ content: '\f068'; } //minus sign
+      &:focus{ outline: none; }
+    }
+  }
+}
+.header{
+  font-family: $font-header;
+  color: $dkpurple;
+}
+#paper{
+  margin: .5em auto 1.5em auto; //a bit of space above & below paper
+  max-width: 1124px;	//so it seems like a piece of paper!
+  min-width: 320px;
+  padding: 3%;		//print margins
+  word-wrap: break-word;
+  background-color: white;
+  border: 1px solid $grey;
+  box-shadow: 5px 5px 10px $grey;
+}
+#content{  //words & boxes inside page
+  padding-top: 1%;
+  min-width: 300px;
+  font-family: $font-content;
+  font-size: 100%;
+  background-color: $bkgColor;
+}
+.title{  //my name in the header
+  font-size: 2.5em;
+  padding: 0 0 1% 1%;
+  margin: 0;
+  &:hover{ text-shadow: 2px 2px #c8b9c5; }
+}
+h3:hover{ text-shadow: 2px 2px #d3c7d0; }
+.purple{
+  font-weight: bold;
+  color: $purple;
+}
+h3{ //section headers
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  text-align: center;
+}
+#experienceTxt{ text-align: left; }
+#contactTxt{ display: inline-block; }
+div.job{
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  p.jobTitle{
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0.25em;
+  }
+  &:hover{
+    p.date{ color: $lightBlue; }
+  }
+}
+div.employer{
+  p.employerName{
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+  p.location{ display: block; }
+  &:hover{
+    p.date{ color: $lightBlue; }
+  }
+}
+div.school{
+  p.schoolName{
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+  p.major{
+    font-style: italic;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+  p.gpa{
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  &:hover{
+    p.date{ color: $lightBlue; }
+  }
+}
+.subHeader{ margin-bottom: 0.25em; }
+div.scholarships{
+  font-size: 0.9em;
+  margin: 0;
+  margin-top: 0.25em;
+}
+p.date{
+  font-weight: bold;
+  font-size: 0.9em;
+  font-style: italic;
+  float: right;
+  margin-top: 5px;
+  display: inline-block;
+}
+ul{
+  list-style:none;
+  padding:0;
+  margin-bottom: 0;
+}
+li{
+  width: 100%;
+  line-height: 1.5;
+  p.date{
+    margin-top: 2px;
+  }
+  &:hover{
+    p.date{
+      color: $lightBlue;
+    }
+  }
+}
+hr{
+  border-width: 0.15em;
+  border-style: solid;
+  background-color: $dkpurple;
+  border-color: $dkpurple;
+  margin: 0;
+}
+p{
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+.italic{ font-style: italic; }
+br{ line-height: 1.5em; }
+
+/****** INNER PAGE FRAMEWORK: BOXES *******/
+#experience{
+  margin: 1em;
+  padding: 3%;
+  padding-bottom: 5%;
+  border-width: 0.1em 0.25em 0.2em 0.25em;
+  border-style: solid;
+  border-color: $grey $orange $grey $orange;
+  background-color: white;
+}
+#bottomContainer{
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em 2em 1em 2em;
+  margin-bottom: 0.5em;
+  background-color: #F4F3EF;
+  width: 100%;
+}
+#courses{   //right side of flex container
+  flex: 0 1 35%;
+  margin: auto;
+  .content{
+    max-width: 400px;
+  }
+  padding-left: 1em;
+  border-left: 1.5px solid $grey;
+  li, li:before{ display: inline-block; }
+  .mainPt{ font-size: 90%; }
+}
+.left{
+  padding-right: 1.5em;
+  min-width: 440px;
+  flex: 0 2 60%;
+}
+#skills{
+  border-bottom: 1.5px solid $grey;
+  padding-bottom: 0.5em;
+  div{
+    max-width: 600px;
+    margin: auto;
+    .skillsContent{
+      display: flex;
+      justify-content: space-around;
+      .mainPt{ font-size: 90%; }
+    }
+  }
+}
+#edu{
+  padding-top: 0.75em;
+  .content{
+    max-width: 500px;
+    margin: auto;
+  }
+}
+#contact{
+  text-align: center;
+  p{
+    font-size: 80%;
+    font-style: italic;
+  }
+}
+
+/******** FLIP BOXES / CONTENT BOXES *********/
+.flip-container{
+  perspective: 1000px;
+  -webkit-transform: translate3d(0,0,0);
+  .unflip{
+	height: 65px;
+  }
+} //fix z-index issue in safari
+.box-container {  //each flip box
+  width: 95%;
+  margin: auto;
+  cursor: pointer;
+  -o-transform-style: preserve-3d; //opera
+  -o-transition: 0.6s;
+  -ms-transform-style: flat; //ie
+  -ms-transition: 0.6s;
+  -ms-transform: rotateY(360deg); //fix issue with ie not showing back pane -- it can only flip 360 degrees :/
+  -moz-transform-style: preserve-3d; //firefox
+  -moz-transition: 0.6s;
+  -webkit-transform-style: preserve-3d; //safari
+  transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+.flip, .back {  //flip front & back when clicked
+  -ms-transform: rotateY(0deg) !important; //fix bug with IE not showing back pane
+  -moz-transform: rotateY(180deg); //firefox
+  -o-transform: rotateY(180deg); //opera
+  -webkit-transform: rotateY(180deg); //safari
+  transform: rotateY(180deg);
+}
+.front, .back { //hide back of pane during swap
+  margin-bottom: 1em;
+  -moz-backface-visibility: hidden; //firefox
+  -ms-backface-visibility: hidden; //ie
+  -o-backface-visibility: hidden; //opera
+  -webkit-backface-visibility: hidden;  //safari
+  backface-visibility: hidden;
+}
+.unflip div.back{ display: none; }
+.front {  //front pane
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  z-index: 10;    //one higher than the back
+  padding: 0.3em;
+  background-color: $flipbox;
+  font-size: 200%;
+  font-weight: normal;
+  transform: rotateY(0deg);  //firefox 31
+  i{
+    display: inline;
+    padding-right: 0.5em;
+  }
+  &:hover{ text-shadow: 2px 2px #aaa; }
+  &:hover::after{
+    content: '\f107';
+    font-family: FontAwesome;
+    right: 0.5em;
+    position: absolute;
+    text-shadow: none;
+  }
+}
+.back{
+  padding: 0.25em 0 0 0;
+  border: 1px solid $grey;
+  z-index: 9;    //one less than the front: ;
+  background-color: white;
+  div.mainPt > ul{  height: 3em;  } //not taller than the front
+  div{
+    &.subPt{
+      > ul{  padding: 0.5em 2em 0.5em 2em;  } //not taller than the front
+          -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+        background-color: white;
+      &.hide.show{
+         background: #e3dce2;
+      }
+
+    }
+  }
+
+}
+.back, .flatBox {
+ > ul{ width: 100%; } //group of list items
+  div.mainPt > ul{    //main point text
+    font-size: 1.15em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.subPt{ //content below the main point
+    >ul{  //the whole content box
+      border-top: 0.1em solid $grey; //grey line
+      border-spacing: 0.25em;   	//add spacing between bullets
+    }
+
+    li{   //each list item
+	  display: table-row;
+      &:hover::before{ color: #19c295; }
+      ul{  //sub lists
+        padding-left: 0.2em;
+        li:before{  //add icon before indented bullets
+          display: table-cell;
+          padding-right:0.6em;
+          content: '\f061';  //arrow
+          font-family: FontAwesome;
+        }
+        li:hover::before{ color: $lightBlue; }
+      }
+      &:before{  //add icon before main bullets
+        display: table-cell;
+        padding-right:0.6em;
+        content: '\f00c';  //check
+        font-family: FontAwesome;
+      }
+    }
+  }
+}
+.front:hover, .front:focus {
+  transition: all .3s ease-out;
+  background-color: #d5d5d5;
+  box-shadow: inset 0 0 0 5px $purple;
+}
+.headerBtn button:hover{
+  box-shadow: inset 0 0 0 3px $purple;
+}
+#email:hover{ text-decoration: none; }
+.flatBox{ //content boxes
+  border: none;
+  padding-bottom: 0.5em;
+  div.subPt ul{
+    border-style: none;
+  }
+}
+/************ MEDIA QUERIES **************/
+@media(max-width: 1100px){
+   .left{ padding-right: 0; }
+}
+@media (max-width: 1000px) {  //make font size fit in boxes
+  .back{
+	  div.mainPt ul{ height: 4.1em; font-size: 90%; }
+  }
+}
+@media (max-width: 980px) {
+  #bottomContainer{
+    font-size: 90%;
+  }
+}
+@media (max-width: 900px) {
+  #bottomContainer{
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  }
+  #edu{ border-bottom: 1.5px solid $grey; }
+  #courses{
+    padding-left: 0;
+    padding-top: 0.75em;
+    border-left: none;
+  }
+}
+@media (max-width: 605px) {    //when things starting needing resize
+  body { font-size: 85%; }	  //make things a bit smaller (yes, the 5 in 605 is necessary!!)
+  .back{
+    margin-bottom: 0.5em;
+    li{ padding: 0; }
+    div.mainPt ul{ font-size: 90%; }
+    div.subPt ul{ padding: 0.5em; }
+  }
+  .front{ height: 100%; }
+  .headerBtn button{ font-size: 150%; }
+}
+@media (max-width: 450px) {
+  body { font-size: 75%; }
+  .headerBtn button{ font-size: 100%; }
+}
+@media (max-width: 320px){
+  body{ margin-left: 0; font-size: 68%;}
+  #bottomContainer{ font-size: 90%; }
+}
